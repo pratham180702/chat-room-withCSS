@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/topics_component.css' %}" />
+
+<h3 class="main-heading">Browse Topics</h3>
+<hr class="feed-line" />
+<div class="topic-names">
+  <div class="topic-name"><a href="{% url 'home' %}">All</a><br /></div>
+  {% for topic in topics %}
+  <div class="topic-name">
+    <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a><br />
+  </div>
+
+  {% endfor %}
+</div>

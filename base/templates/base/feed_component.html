@@ -1,0 +1,40 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/feed_component.css' %}" />
+
+<div>
+  {% for room in rooms %}
+  <div class="room-component">
+    {% if request.user == room.host %}
+    <div class="room-upadte-delete-buttons">
+      <div class="update-room-button">
+        <button class="btn btn-outline-light">
+          <a class="edit-buttons-anchor" href="{% url 'update-room' room.id %}"
+            >Update Room</a
+          >
+        </button>
+      </div>
+      <div class="delete-room-button">
+        <button class="btn btn-outline-light">
+          <a class="edit-buttons-anchor" href="{% url 'delete-room' room.id %}"
+            >Delete Room</a
+          >
+        </button>
+      </div>
+    </div>
+    {% endif %}
+    <div class="room-div">
+      <p class="room-owner-p">Room Owner -</p>
+      <a href="{% url 'user-profile' room.host.id %}"
+        >@{{room.host.username}}</a
+      >
+    </div>
+    <div class="room-div">
+      <p class="room-name-p">Room Name -</p>
+      <a href="{% url 'room' room.id %}">{{room.name}}</a>
+    </div>
+    <br />
+    <small>{{room.topic.name}}</small>
+  </div>
+  {% endfor %}
+</div>

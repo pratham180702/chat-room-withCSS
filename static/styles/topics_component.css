@@ -1,0 +1,28 @@
+.feed-line {
+  border: none; /* Remove the default line */
+  border-top: 4px solid white; /* Set the new line thickness and color (white in this case) */
+  height: 4px; /* Increase the height (thickness) as desired */
+}
+
+.main-heading {
+  text-align: center;
+}
+
+.topic-name {
+  background-color: #1450a3;
+  margin-bottom: 5px;
+  padding: 5px;
+  /* border: solid 1px black; */
+  border-radius: 10px;
+  text-align: center;
+}
+
+.topic-names a {
+  color: white; /* Change 'red' to the desired color */
+  text-decoration: none;
+}
+
+.topic-name:hover {
+  background-color: black;
+  color: white;
+}

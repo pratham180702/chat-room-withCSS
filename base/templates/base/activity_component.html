@@ -1,0 +1,19 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/activity_component.css' %}" />
+
+<h3 class="main-heading">Recent Activities</h3>
+<hr class="feed-line" />
+{% for message in room_messages %}
+<div class="activity-message">
+  <small class="host-and-time"
+    ><a href="{% url 'user-profile' message.user.id %}">@{{message.user}}</a>
+    <small class="time">{{message.created|timesince}} ago</small></small
+  ><br />
+  <small class="replied-to">replied in "{{message.room}}" room</small>
+  <p class="message-body">"{{message}}"</p>
+  {% if request.user == message.user %}
+  <a href="{% url 'delete-comment' message.id %}">Delete comment</a>
+  {% endif %}
+</div>
+{% endfor %}

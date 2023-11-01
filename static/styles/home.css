@@ -1,0 +1,55 @@
+.main-container {
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.topics {
+  background-color: #0c356a;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px 10px;
+}
+
+.feed {
+  background-color: black;
+  border-radius: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.room-create-room {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.room-count {
+  align-items: center;
+  padding-top: 0px;
+}
+
+.create-room {
+  color: black;
+  margin: 0;
+  padding-right: 5px;
+  text-decoration: none;
+  text-align: end;
+}
+
+.create-room-button {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.feed-line {
+  border: none; /* Remove the default line */
+  border-top: 4px solid white; /* Set the new line thickness and color (white in this case) */
+  height: 4px; /* Increase the height (thickness) as desired */
+}
+
+.activity {
+  background-color: #0c356a;
+  border-radius: 10px;
+  padding: 20px;
+}

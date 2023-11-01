@@ -1,0 +1,44 @@
+.room-upadte-delete-buttons {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  margin-bottom: 10px;
+}
+
+.delete-room-button {
+  text-align: end;
+}
+
+.room-component {
+  background-color: #333333;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.edit-buttons-anchor {
+  text-decoration: none;
+  font-size: 0.75rem;
+  color: white;
+}
+
+.edit-buttons-anchor:hover {
+  color: black;
+}
+
+.room-owner-p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: inline-block;
+}
+
+.room-name-p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: inline-block;
+}
+
+.room-div a {
+  color: #9eb384;
+}
+
+.room-div a:hover {
+  color: white;
+}

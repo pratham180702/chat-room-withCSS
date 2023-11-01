@@ -1,0 +1,28 @@
+.login-form {
+  margin-left: 40%;
+  background-color: #0c356a;
+  text-align: center;
+  width: 20%;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.login-form input,
+.login-form p,
+.login-form a {
+  margin: 10px 0; /* Add margin to separate elements vertically */
+}
+
+.login-form input {
+  padding: 5px;
+  background-color: white;
+  border-radius: 10px;
+  border: 0px;
+  outline: none;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.login-form h2 {
+  color: white;
+}

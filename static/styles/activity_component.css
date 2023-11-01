@@ -1,0 +1,45 @@
+.main-heading {
+  text-align: center;
+}
+
+.feed-line {
+  border: none; /* Remove the default line */
+  border-top: 4px solid white; /* Set the new line thickness and color (white in this case) */
+  height: 4px; /* Increase the height (thickness) as desired */
+}
+
+.activity-message {
+  background-color: #1450a3;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.host-and-time {
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr;
+}
+
+.time {
+  text-align: end;
+  color: grey;
+}
+
+.host-and-time a {
+  color: white;
+}
+
+.host-and-time a:hover {
+  color: black;
+}
+
+.replied-to {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.message-body {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #3a4d39;
+  font-size: small;
+}

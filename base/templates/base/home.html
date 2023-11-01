@@ -1,0 +1,24 @@
+{% extends 'main.html' %} {% block content %} {% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/home.css' %}" />
+
+<div class="main-container">
+  <div class="topics">{% include 'base/topics_component.html' %}</div>
+
+  <div class="feed">
+    <div class="room-create-room">
+      <h6 class="room-count">{{room_count}} rooms available</h6>
+      <button class="btn btn-light create-room-button">
+        <a class="create-room" href="{% url 'create-room' %}">Create Room</a>
+      </button>
+    </div>
+    <hr class="feed-line" />
+    <!-- .... -->
+
+    {% include 'base/feed_component.html' %}
+  </div>
+
+  <div class="activity">{% include 'base/activity_component.html' %}</div>
+</div>
+
+{% endblock content %}
