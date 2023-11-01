@@ -1,4 +1,5 @@
 .login-form {
+  margin-top: 5%;
   margin-left: 40%;
   background-color: #0c356a;
   text-align: center;
@@ -7,10 +8,33 @@
   padding: 20px;
 }
 
+.login-form h2 {
+  color: #c0d7dd;
+  margin-bottom: 20px;
+}
+
 .login-form input,
 .login-form p,
 .login-form a {
   margin: 10px 0; /* Add margin to separate elements vertically */
+}
+
+.login-form input[type="submit"] {
+  margin-top: 20px;
+  width: 60%;
+  background-color: #c0d7dd;
+}
+
+.login-form input[type="submit"]:hover {
+  margin-top: 20px;
+  width: 60%;
+  background-color: black;
+  color: #c0d7dd;
+}
+
+.login-form p {
+  margin-top: 40px;
+  color: #c0d7dd;
 }
 
 .login-form input {
@@ -21,8 +45,15 @@
   outline: none;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  width: 85%;
 }
 
-.login-form h2 {
-  color: white;
+.feed-line {
+  border: none; /* Remove the default line */
+  border-top: 4px solid white; /* Set the new line thickness and color (white in this case) */
+  height: 4px; /* Increase the height (thickness) as desired */
+}
+
+.login-form a:hover {
+  color: black;
 }

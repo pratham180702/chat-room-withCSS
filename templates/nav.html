@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{% static 'styles/nav.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'images/logo.png' %}" /> -->
 
     <!-- test  -->
     <script
@@ -34,7 +35,9 @@
   <body>
     <!-- main html file -->
     <div class="main-logo">
-      <a href="/" class="main-logo-link">PK's Supp ChatRoom</a>
+      <a href="/" class="main-logo-link"
+        ><img src="{% static 'images/logo.png' %}" alt=""
+      /></a>
     </div>
 
     <nav class="navbar navigation-bar">
@@ -46,10 +49,11 @@
 
       {% else %}
       <button type="button" class="btn btn-dark login-button">
-        <a class="login-anchor" href="{% url 'login' %}">Login</a>
+        <a class="lgin-anchor" href="{% url 'login' %}">Login</a>
       </button>
       {% endif %}
     </nav>
+    {% if show_search_bar %}
     <form class="search-form" method="get" action="{% url 'home' %}">
       <input
         class="search-input"
@@ -58,5 +62,6 @@
         placeholder="Search Rooms..."
       />
     </form>
+    {% endif %}
   </body>
 </html>

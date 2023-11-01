@@ -19,6 +19,7 @@ from django.contrib import messages
 
 
 def home(request):
+    show_search_bar = True
     q = request.GET.get("q") if request.GET.get("q") != None else ""
 
     rooms = Room.objects.filter(
@@ -37,6 +38,7 @@ def home(request):
         "topics": topics,
         "room_count": room_count,
         "room_messages": room_messages,
+        "show_search_bar": show_search_bar,
     }
     return render(request, "base/home.html", context)
 
