@@ -21,13 +21,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-)=aaeu$zka2p*3acp)@%@5*_m_==7#49cy2ro#h2sd%!#zk)k%"
+# SECRET_KEY = "django-insecure-)=aaeu$zka2p*3acp)@%@5*_m_==7#49cy2ro#h2sd%!#zk)k%"
+import os
+
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY",
+    default="django-insecure-)=aaeu$zka2p*3acp)@%@5*_m_==7#49cy2ro#h2sd%!#zk)k%",
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+# main issue here
+# DEBUG = True
 
+DEBUG = "RENDER" not in os.environ
+
+ALLOWED_HOSTS = []
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -43,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -84,8 +98,21 @@ WSGI_APPLICATION = "studybud.wsgi.application"
 
 import os
 
-DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+# DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
+
+DATABASES = {
+    "default": dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default="postgres://chatappdb_uasu_user:1rRnUFBtVwASOtzvVuNRjty5U4MbZRkU@dpg-cl2tjcgt3kic73d426fg-a.oregon-postgres.render.com/chatappdb_uasu",
+        conn_max_age=600,
+    )
+}
+
+# db_from_env = dj_database_url.config(conn_max_age=600)
+# DATABASES["default"].update(db_from_env)
+
+# print(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -123,10 +150,24 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+# added from render docs
+if not DEBUG:
+    # Tell Django to copy statics to the `staticfiles` directory
+    # in your application directory on Render.
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+    # Turn on WhiteNoise storage backend that takes care of compressing static files
+    # and creating unique names for each version so they can safely be cached forever.
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# end here
+
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
+
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
-STATIC_URL = "static/"
-MEDIA_URL = "media/"
+# STATIC_URL = "static/"
+# MEDIA_URL = "media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

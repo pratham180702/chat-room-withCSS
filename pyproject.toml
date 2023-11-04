@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "chatroom"
+version = "1"
+description = "xyz"
+authors = ["Pratham Kakkad <prathamkakkad18@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+whitenoise = {extras = ["brotli"], version = "^6.6.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
